@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bouchard Quin – Mechanic & Game Developer</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0a0a0a;
+      color: #e0e0e0;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      overflow-x: hidden; /* prevent horizontal scroll during animation */
+    }
+    header {
+      background-color: #0d0d1a;
+      padding: 40px 20px 20px;
+      text-align: center;
+      border-bottom: 2px solid #005eff;
+      position: relative;
+      z-index: 10;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2.5em;
+      color: #009dff;
+    }
+    header p {
+      font-size: 1.1em;
+      color: #a0cfff;
+      margin: 5px 0 20px;
+    }
+    nav {
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 10;
+    }
+    nav a {
+      color: #33aaff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1em;
+      cursor: pointer;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .content {
+      padding: 30px 20px;
+      max-width: 800px;
+      margin: auto;
+      position: relative;
+      z-index: 10;
+    }
+    .section {
+      margin-bottom: 30px;
+      padding: 20px;
+      background-color: #111;
+      border-left: 4px solid #007bff;
+      border-radius: 8px;
+    }
+    .section h2 {
+      color: #33aaff;
+      margin-top: 0;
+    }
+    ul {
+      list-style: disc;
+      padding-left: 20px;
+    }
+    a {
+      color: #3399ff;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #666;
+      border-top: 1px solid #222;
+      font-size: 0.9em;
+      background-color: #0d0d1a;
+      position: relative;
+      z-index: 10;
+    }
+    /* Gear swipe styling */
+    #gearSwipe {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: -100px;
+      transform: translateY(-50%);
+      z-index: 1;             /* behind all content */
+      pointer-events: none;
+      width: 420px;
+      height: 420px;
+      fill: #9f440b;
+      opacity: 0.15;          /* transparent gear */
+    }
+  </style>
+</head>
+<body>
+
+    <header>
+        <h1>Home</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="projects.html">Projects</a>
+        </nav>
+      </header>
+
+  <div class="content">
+    <div class="section">
+      <h2>About Me</h2>
+      <p>I started at 13 working on engines and learning to code. Now, I do hands-on mechanical work, build games, and help people get what they need — whether it's parts or programming help.</p>
+    </div>
+
+    <div class="section">
+      <h2>What I Do</h2>
+      <ul>
+        <li>Mechanical repairs and diagnostics</li>
+        <li>Learning Python and C++ for game development</li>
+        <li>Buying and selling tools, parts, or software services</li>
+        <li>Helping customers place orders or find rare items</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Contact</h2>
+      <p>Email me: <a href="mailto:bouchardquin70@gmail.com">bouchardquin70@gmail.com</a></p>
+      <p>Want to work with me? Message me for availability or offers.</p>
+    </div>
+  </div>
+
+  <!-- Gear swipe animation -->
+  <svg id="gearSwipe" aria-hidden="true" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M19.43 12.98c.04-.32.07-.66.07-1s-.03-.68-.07-1l2.11-1.65a.5.5 0 00.12-.63l-2-3.46a.5.5 0 00-.6-.22l-2.49 1a7.04 7.04 0 00-1.73-1L14 4.24a.5.5 0 00-.5-.24h-4a.5.5 0 00-.5.24l-.38 2.54a7.04 7.04 0 00-1.73 1l-2.49-1a.5.5 0 00-.6.22l-2 3.46a.5.5 0 00.12.63l2.11 1.65c-.04.32-.07.66-.07 1s.03.68.07 1l-2.11 1.65a.5.5 0 00-.12.63l2 3.46a.5.5 0 00.6.22l2.49-1a7.04 7.04 0 001.73 1l.38 2.54a.5.5 0 00.5.24h4a.5.5 0 00.5-.24l.38-2.54a7.04 7.04 0 001.73-1l2.49 1a.5.5 0 00.6-.22l2-3.46a.5.5 0 00-.12-.63l-2.11-1.65zM12 15.5a3.5 3.5 0 113.5-3.5 3.5 3.5 0 01-3.5 3.5z"/>
+  </svg>
+
+  <script>
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const url = link.getAttribute('href');
+        const gear = document.getElementById('gearSwipe');
+        gear.style.display = 'block';
+
+        gear.animate([
+          { transform: 'translate(-100px, -50%)' },
+          { transform: 'translate(110vw, -50%)' }
+        ], {
+          duration: 1200,
+          easing: 'ease-in-out',
+          fill: 'forwards'
+        });
+
+        setTimeout(() => {
+          window.location.href = url;
+        }, 1200);
+      });
+    });
+  </script>
+
+  <footer>
+    &copy; 2025 Bouchard Quin
+  </footer>
+
+</body>
+</html>

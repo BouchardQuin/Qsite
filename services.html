@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Services – Bouchard Quin</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0a0a0a;
+      color: #e0e0e0;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      overflow-x: hidden; /* prevent horizontal scroll during animation */
+    }
+    header {
+      background-color: #0d0d1a;
+      padding: 30px 20px;
+      text-align: center;
+      border-bottom: 2px solid #005eff;
+      position: relative;
+      z-index: 10;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.3em;
+      color: #009dff;
+    }
+    nav {
+      margin-top: 10px;
+      position: relative;
+      z-index: 10;
+    }
+    nav a {
+      color: #33aaff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1em;
+      cursor: pointer;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .content {
+      padding: 30px 20px;
+      max-width: 800px;
+      margin: auto;
+      position: relative;
+      z-index: 10;
+    }
+    .section {
+      margin-bottom: 30px;
+      background-color: #111;
+      border-left: 4px solid #007bff;
+      border-radius: 8px;
+      padding: 20px;
+    }
+    .section h2 {
+      margin-top: 0;
+      color: #33aaff;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #666;
+      border-top: 1px solid #222;
+      background-color: #0d0d1a;
+      position: relative;
+      z-index: 10;
+    }
+    /* Gear swipe styling */
+    #gearSwipe {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: -100px;
+      width: 420px;
+      height: 420px;
+      transform: translateY(-50%);
+      fill: #522306;
+      opacity: 0.15;          /* transparent gear */
+      pointer-events: none;
+      z-index: 1;             /* behind everything */
+    }
+  </style>
+</head>
+<body>
+
+    <header>
+        <h1>My Services</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="projects.html">Projects</a>
+        </nav>
+      </header>
+
+  <div class="content">
+    <div class="section">
+      <h2>Game Development</h2>
+      <ul>
+        <li>Learning and building with Python and C++</li>
+        <li>Custom game logic and prototyping</li>
+        <li>Small tools or utility scripts for games</li>
+        <li>Offering feedback or help on beginner projects</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Mechanic Work</h2>
+      <ul>
+        <li>Small engine repair and maintenance</li>
+        <li>Diagnostics and part replacement</li>
+        <li>Buying/selling used parts or builds</li>
+        <li>Tool recommendations and sourcing</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Custom Orders & Deals</h2>
+      <ul>
+        <li>Request specific tools, parts, or game-related items</li>
+        <li>Get offers on what you need — I’ll help find it or source it</li>
+        <li>Fast responses and real quotes</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Contact Me</h2>
+      <p>Email: <a href="mailto:bouchardquin70@gmail.com">bouchardquin70@gmail.com</a></p>
+      <p>Let me know what you're looking for — I’ll reply with pricing or suggestions.</p>
+    </div>
+  </div>
+
+  <!-- Gear swipe animation -->
+  <div id="gearSwipe" aria-hidden="true">
+    <svg width="420" height="420" viewBox="0 0 24 24" fill=9f440b" xmlns="http://www.w3.org/2000/svg">
+      <path d="M19.14 12.94c.04-.31.07-.63.07-.94s-.03-.63-.07-.94l2.03-1.58a.5.5 0 00.11-.64l-1.92-3.32a.5.5 0 00-.6-.22l-2.39.96a7.027 7.027 0 00-1.62-.94l-.36-2.54a.5.5 0 00-.5-.43h-3.84a.5.5 0 00-.5.43l-.36 2.54a7.06 7.06 0 00-1.62.94l-2.39-.96a.5.5 0 00-.6.22l-1.92 3.32a.5.5 0 00.11.64l2.03 1.58c-.04.31-.07.63-.07.94s.03.63.07.94l-2.03 1.58a.5.5 0 00-.11.64l1.92 3.32a.5.5 0 00.6.22l2.39-.96c.5.38 1.04.69 1.62.94l.36 2.54a.5.5 0 00.5.43h3.84a.5.5 0 00.5-.43l.36-2.54a7.06 7.06 0 001.62-.94l2.39.96a.5.5 0 00.6-.22l1.92-3.32a.5.5 0 00-.11-.64l-2.03-1.58zM12 15.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7z"/>
+    </svg>
+  </div>
+
+  <footer>
+    &copy; 2025 Bouchard Quin. All rights reserved.
+  </footer>
+
+  <script>
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const url = link.href;
+        const gear = document.getElementById('gearSwipe');
+        gear.style.display = 'block';
+
+        gear.animate([
+          { transform: 'translate(-100px, -50%)' },
+          { transform: 'translate(110vw, -50%)' }
+        ], {
+          duration: 1200,
+          easing: 'ease-in-out',
+          fill: 'forwards'
+        });
+
+        setTimeout(() => {
+          window.location.href = url;
+        }, 1200);
+      });
+    });
+  </script>
+
+</body>
+</html>
